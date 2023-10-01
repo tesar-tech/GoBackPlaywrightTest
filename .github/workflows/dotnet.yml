@@ -26,9 +26,7 @@ jobs:
       run: cp ${{env.PUBLISH_DIR}}/wwwroot/index.html ${{env.PUBLISH_DIR}}/wwwroot/404.html
       
     - name: Commit wwwroot to GitHub Pages 
-      uses: JamesIves/github-pages-deploy-action@v4.2.5
+      uses: JamesIves/github-pages-deploy-action@v4
       with:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
-        BRANCH: gh-pages
-        FOLDER: ${{env.PUBLISH_DIR}}/wwwroot 
+        folder: ${{env.PUBLISH_DIR}}/wwwroot 
       
