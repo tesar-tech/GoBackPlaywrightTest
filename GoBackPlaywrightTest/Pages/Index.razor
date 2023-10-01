@@ -1,0 +1,20 @@
+﻿@page "/"
+
+<button @onclick="()=> areUnsavedChangesPresent = !areUnsavedChangesPresent">Toggle unsaved changes</button>
+
+<br />
+
+@if (areUnsavedChangesPresent)
+{
+    <div>Unsaved changes are present</div>
+}
+else
+{
+    <div>No Unsaved changes</div>
+}
+
+<NavigationLock OnBeforeInternalNavigation="(e)=> {if(areUnsavedChangesPresent) e.PreventNavigation();}" ConfirmExternalNavigation=areUnsavedChangesPresent/>
+
+@code {
+    private bool areUnsavedChangesPresent = false;
+}
